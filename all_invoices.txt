@@ -1,0 +1,47 @@
+
+INVOICE
+--------------------------------
+No              : 2
+Jenis Barang    : PIRING BULAT CAMEL 09
+Quantity        : 20
+Berat Satuan    : 1.092
+Total Berat     : 524.0
+Harga Satuan    : 2.544
+Total Harga USD : 1221.112
+--------------------------------
+
+
+INVOICE
+--------------------------------
+No              : 3
+Jenis Barang    : WIJAYA TOPLES 30L
+Quantity        : 20
+Berat Satuan    : 0.002
+Total Berat     : 86.0
+Harga Satuan    : 0.004
+Total Harga USD : 156.479
+--------------------------------
+
+
+INVOICE
+--------------------------------
+No              : 4
+Jenis Barang    : SENDOK PUTIH SONE
+Quantity        : 15
+Berat Satuan    : 1.7
+Total Berat     : 6.8
+Harga Satuan    : 8.843
+Total Harga USD : 795.884
+--------------------------------
+
+
+INVOICE
+--------------------------------
+No              : 5
+Jenis Barang    : KOMPOR HOCK 10 SUMBU
+Quantity        : 30
+Berat Satuan    : 2.48
+Total Berat     : 447.0
+Harga Satuan    : 11.246
+Total Harga USD : 2586.622
+--------------------------------
