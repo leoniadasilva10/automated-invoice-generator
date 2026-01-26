@@ -1,33 +1,62 @@
 import pandas as pd
 
-# Read Excel file
-data = pd.read_excel("Buku1.xlsx")
+# === CONFIG ===
+INPUT_FILE = "Buku1.xlsx"
+OUTPUT_TXT = "all_invoices.txt"
+OUTPUT_EXCEL = "invoice_output.xlsx"
 
-# Take first row as sample
-row = data.iloc[0]
+# === READ EXCEL (REAL-WORLD MESSY FORMAT) ===
+df = pd.read_excel(
+    INPUT_FILE,
+    header=None,
+    skiprows=2
+)
 
-# Create invoice content
-invoice_text = f"""
+# Remove empty rows
+df = df.dropna(how="all")
+
+# Set column names manually
+df.columns = [
+    "NO",
+    "JENIS BARANG",
+    "TOTAL SATUAN",
+    "QUANTITY",
+    "BERAT SATUAN",
+    "TOTAL BERAT KOTOR",
+    "TOTAL BERAT BERSIH",
+    "HARGA SATUAN USD",
+    "TOTAL HARGA USD"
+]
+
+# Remove TOTAL / JUMLAH row if exists
+df = df[df["NO"].apply(lambda x: str(x).isdigit())]
+
+# === GENERATE TEXT INVOICES ===
+all_invoices = []
+
+for _, row in df.iterrows():
+    invoice = f"""
 INVOICE
 --------------------------------
-No               : {row['No']}
-Jenis Barang     : {row['Jenis Barang']}
-Quantity         : {row['Quantity']}
-Berat Satuan     : {row['Berat Satuan']}
-Total Berat Kotor: {row['Total Berat kotor']}
-Total Berat Bersih: {row['Total Berat Bersih']}
-Harga Satuan USD : {row['Harga Satuan (USD)']}
-Total Harga USD  : {row['Total Harga (USD)']}
+No              : {row['NO']}
+Jenis Barang    : {row['JENIS BARANG']}
+Quantity        : {row['QUANTITY']}
+Berat Satuan    : {row['BERAT SATUAN']}
+Total Berat     : {row['TOTAL BERAT KOTOR']}
+Harga Satuan    : {row['HARGA SATUAN USD']}
+Total Harga USD : {row['TOTAL HARGA USD']}
 --------------------------------
-Thank you for your business.
 """
+    all_invoices.append(invoice)
 
-# Save invoice as text file
-with open("invoice_output.txt", "w") as file:
-    file.write(invoice_text)
+# Save TXT
+with open(OUTPUT_TXT, "w") as f:
+    f.write("\n".join(all_invoices))
 
-print("Invoice generated successfully")
+# Save Excel summary
+df.to_excel(OUTPUT_EXCEL, index=False)
 
-    file.write(invoice_text)
-
-print("Invoice generated successfully")
+print("SUCCESS ✅")
+print("Generated:")
+print("- all_invoices.txt")
+print("- invoice_output.xlsx")
