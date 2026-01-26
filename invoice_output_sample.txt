@@ -1,1 +1,13 @@
+INVOICE
+--------------------------------
+No               : 1
+Jenis Barang     : Electronic Components
+Quantity         : 10
+Berat Satuan     : 2 kg
+Total Berat Kotor: 20 kg
+Total Berat Bersih: 18 kg
+Harga Satuan USD : 150
+Total Harga USD  : 1500
+--------------------------------
+Thank you for your business.
 
