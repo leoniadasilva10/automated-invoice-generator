@@ -2,6 +2,10 @@
 Simple document automation project using Phyton
 This project automates invpice creation from Excel data. It helps reduce manual data entry for import-export documentation.
 
+## Dataset Note
+The dataset uses Indonesian column names to reflect real-world import–export invoices.
+This demonstrates the ability to work with localized operational data.
+
 ## Features
 - Read invoice data from Excel
 - Generate PDF invoice automatically
