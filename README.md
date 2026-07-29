@@ -17,3 +17,5 @@ The sample dataset uses Indonesian column names to reflect real-world import-exp
 
 ## Output
 Generates sample invoices in PDF format.
+
+> **Note:** This project uses fictional data for demonstration purposes only.
